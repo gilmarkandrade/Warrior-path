@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5b6mne05hfvd"]
+
+[ext_resource type="Shader" path="res://Scenes/shadder/filer.gdshader" id="1_8np83"]
+[ext_resource type="Script" path="res://Scripts/Global/filter_screen.gd" id="1_t3rao"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_me1gx"]
+shader = ExtResource("1_8np83")
+shader_parameter/progress = 0.0
+shader_parameter/diamondPixelSize = 10.0
+
+[sub_resource type="Animation" id="Animation_cl70b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("CanvasLayer/ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_k4oth"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_54h4c"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cnnqb"]
+_data = {
+"RESET": SubResource("Animation_cl70b"),
+"close": SubResource("Animation_k4oth"),
+"open": SubResource("Animation_54h4c")
+}
+
+[node name="FilterScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_t3rao")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 120
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_me1gx")
+offset_right = 1156.0
+offset_bottom = 652.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="animFilter" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cnnqb")
+}

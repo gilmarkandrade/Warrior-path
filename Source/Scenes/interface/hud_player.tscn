@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://dotkay2keqlr4"]
+
+[ext_resource type="Script" path="res://Scripts/interface_UI/hud_player.gd" id="1_ixsdd"]
+[ext_resource type="PackedScene" uid="uid://2cuq0okbxb5g" path="res://Scenes/interface/heart_icon.tscn" id="2_qgyun"]
+[ext_resource type="FontFile" uid="uid://cl51uuy76fgvs" path="res://Assets/fonte/upheavtt.ttf" id="3_dhkht"]
+
+[node name="Hud_player" type="Control" groups=["hud_player"]]
+process_mode = 3
+auto_translate_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ixsdd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 2.0
+offset_top = 9.0
+offset_right = 258.0
+offset_bottom = 57.0
+
+[node name="heart_icon1" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_qgyun")]
+layout_mode = 2
+
+[node name="heart_icon2" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_qgyun")]
+layout_mode = 2
+
+[node name="heart_icon3" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_qgyun")]
+layout_mode = 2
+
+[node name="heart_icon4" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_qgyun")]
+layout_mode = 2
+
+[node name="heart_icon5" parent="CanvasLayer/HBoxContainer" instance=ExtResource("2_qgyun")]
+layout_mode = 2
+
+[node name="GameOver" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1112.0
+offset_bottom = -608.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelTitle" type="RichTextLabel" parent="CanvasLayer/GameOver"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 371.0
+offset_top = 260.0
+offset_right = 810.0
+offset_bottom = 340.0
+theme_override_fonts/normal_font = ExtResource("3_dhkht")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[shake rate=10 level=10]Game Over[/shake]"
+text_direction = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LabelInfo" type="RichTextLabel" parent="CanvasLayer/GameOver"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+offset_left = 293.0
+offset_top = 592.0
+offset_right = 885.0
+offset_bottom = 640.0
+theme_override_fonts/normal_font = ExtResource("3_dhkht")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Pressione qualquer botão"
+text_direction = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="pause" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/pause"]
+offset_left = 483.0
+offset_top = 262.0
+offset_right = 697.0
+offset_bottom = 300.0
+theme_override_fonts/font = ExtResource("3_dhkht")
+theme_override_font_sizes/font_size = 50
+text = "Pause
+"
+horizontal_alignment = 1

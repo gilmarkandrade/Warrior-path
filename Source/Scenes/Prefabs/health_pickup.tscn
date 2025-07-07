@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://uatphq8s541i"]
+
+[ext_resource type="Texture2D" uid="uid://dwbickhnb2ila" path="res://Assets/Trees/FreePack.png" id="1_cxij0"]
+[ext_resource type="AudioStream" uid="uid://cgitwnirk3xee" path="res://Audio/sfx/sfx_pick_up_health.wav" id="2_b6h40"]
+
+[sub_resource type="GDScript" id="GDScript_uj8kj"]
+resource_name = "health_pickup"
+script/source = "extends Area2D
+var used = false
+@export_range(1, 10) var amount_health: int = 1
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group(\"player\") and used == false:
+		if body.has_method(\"add_health\"):
+			body.add_health(amount_health)
+			visible = false
+			used = true
+			$Sfx_destroy.play()
+
+func _on_sfx_destroy_finished() -> void:
+	queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rhc6"]
+size = Vector2(8, 8)
+
+[node name="health_pickup" type="Area2D"]
+script = SubResource("GDScript_uj8kj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_3rhc6")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_cxij0")
+region_enabled = true
+region_rect = Rect2(416.058, 66.2123, 30.1109, 30.9591)
+
+[node name="Sfx_destroy" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_b6h40")
+bus = &"soundeffects"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="Sfx_destroy" to="." method="_on_sfx_destroy_finished"]

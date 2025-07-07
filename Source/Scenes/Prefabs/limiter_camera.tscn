@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq3umls0hgmxr"]
+
+[ext_resource type="Script" path="res://Scripts/prefabs/limiter_camera.gd" id="1_plu0n"]
+
+[node name="LimiterCamera" type="Node2D"]
+script = ExtResource("1_plu0n")
+
+[node name="Left" type="Marker2D" parent="."]
+
+[node name="Right" type="Marker2D" parent="."]
+
+[node name="Botton" type="Marker2D" parent="."]
+
+[node name="Top" type="Marker2D" parent="."]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://2cuq0okbxb5g"]
+
+[ext_resource type="Texture2D" uid="uid://behpmeou30mwm" path="res://Assets/Interfaces_UI/Hud_player/heartFull.png" id="1_x55ub"]
+
+[sub_resource type="GDScript" id="GDScript_t1p8o"]
+resource_name = "heart_icon"
+script/source = "extends TextureRect
+
+func set_heart_state(value:int):
+	
+	match value:
+		0:
+			texture = null
+		1:
+			texture= load(\"res://Assets/Interfaces_UI/Hud_player/halfHeart.png\")
+		2:
+			texture=load(\"res://Assets/Interfaces_UI/Hud_player/heartFull.png\")
+"
+
+[node name="heart_icon" type="TextureRect"]
+unique_name_in_owner = true
+texture = ExtResource("1_x55ub")
+script = SubResource("GDScript_t1p8o")
