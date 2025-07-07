@@ -1,8 +1,8 @@
 ⚔️ Warrior Path — Teste Técnico em Godot 4.3
 Warrior Path é um projeto desenvolvido como parte de um teste técnico, utilizando a engine Godot 4.3. O jogo apresenta uma base sólida de movimentação, combate e inimigos com IA simples, além de diversas funcionalidades extras para enriquecer a experiência.
 
-🔹 Funcionalidades principais:
-🎮 Controle de personagem com movimentação, pulo, ataque e máquina de estados (state machine)
+Funcionalidades principais:
+Controle de personagem com movimentação, pulo, ataque e máquina de estados (state machine)
 
 🤖 Inimigos com IA simples e sistema de spawn dinâmico
 
