@@ -4,7 +4,7 @@ Warrior Path é um projeto desenvolvido como parte de um teste técnico, utiliza
 Funcionalidades principais:
 Controle de personagem com movimentação, pulo, ataque e máquina de estados (state machine)
 
-🤖 Inimigos com IA simples e sistema de spawn dinâmico
+🐱‍👤 Inimigos com IA simples e sistema de spawn dinâmico
 
 ❤️ HUD com sistema de vida em corações
 
