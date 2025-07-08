@@ -442,7 +442,7 @@ _data = {
 "labelmodulate": SubResource("Animation_mm3b2")
 }
 
-[node name="World0" type="Node2D"]
+[node name="World0" type="Node2D" groups=["teste_scene"]]
 script = ExtResource("1_148n0")
 
 [node name="Ground" type="TileMapLayer" parent="."]

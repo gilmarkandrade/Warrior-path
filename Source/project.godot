@@ -42,6 +42,7 @@ camera_player=""
 enemy=""
 hud_player=""
 wall=""
+teste_scene=""
 
 [input]
 

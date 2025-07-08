@@ -42,6 +42,6 @@ func _input(event: InputEvent) -> void:
 			GameSingleton.reset_parameters()
 			get_tree().change_scene_to_file("res://world_0.tscn")
 	
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") and !get_tree().get_nodes_in_group("teste_scene"):
 		get_tree().paused = !get_tree().paused
 		pause_panel.visible = get_tree().paused
